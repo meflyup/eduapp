@@ -3,7 +3,7 @@ import 'dart:math' as math;
 void main() {
   querySelector('#sample_text_id')
     ..text = 'Click me!'
-    ..onClick.listen(randomStudentID);
+    ..onClick.listen(reverseText);
 }
 
 void reverseText(MouseEvent event) {
@@ -13,17 +13,4 @@ void reverseText(MouseEvent event) {
     buffer.write(text[i]);
   }
   querySelector('#sample_text_id').text = buffer.toString();
-}
-void randomStudentID(MouseEvent event){
-  var students={
-    0:10001,
-    1:10002,
-    2:100003,
-    3:100004,
-    4:100005,
-    5:100005
-  };
-  var random = new math.Random();
-  var getYou=students[random.nextInt(6)];
-  querySelector('#sample_studentid_id').text = getYou.toString();
 }
