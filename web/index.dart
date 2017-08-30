@@ -13,4 +13,6 @@ void reverseText(MouseEvent event) {
     buffer.write(text[i]);
   }
   querySelector('#sample_text_id').text = buffer.toString();
+  //我做了点修改
+  querySelector("#sample_text_id").text="new text";
 }
