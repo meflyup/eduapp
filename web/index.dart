@@ -1,18 +1,23 @@
 import 'dart:html';
 import 'dart:math' as math;
+
 void main() {
-  querySelector('#sample_text_id')
-    ..text = 'Click me!'
-    ..onClick.listen(reverseText);
+  Element sample_container_div = querySelector('#sample_container_id');
+  sample_container_div.onClick.listen(showElementStructure);
 }
 
-void reverseText(MouseEvent event) {
-  var text = querySelector('#sample_text_id').text;
-  var buffer = new StringBuffer();
-  for (int i = text.length - 1; i >= 0; i--) {
-    buffer.write(text[i]);
-  }
-  querySelector('#sample_text_id').text = buffer.toString();
-  //我做了点修改
-  querySelector("#sample_text_id").text="new text";
+void showElementStructure(MouseEvent event) {
+  Element eventTarget = event.target;
+  Element myparent = eventTarget.parent;
+  List<Element> myChildren = eventTarget.children;
+  PreElement p=querySelector("#for_button_id");
+  ButtonElement btn=new ButtonElement();
+  btn.text="click me";
+  p.children.add(btn);
+  querySelector("#parent_nodeName_id").text = myparent.nodeName;
+  querySelector("#firstChild_naodeName_id").text = myChildren[0].nodeName;
+}
+
+void addPElement(MouseEvent event){
+  
 }
