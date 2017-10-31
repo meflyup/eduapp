@@ -3,7 +3,5 @@ version: 0.0.1
 description: A sample web application
 dependencies:
   browser: any
-  messenger: "^0.0.7"
-  polymer: ">=0.15.1 <0.17.0"
 dev_dependencies:
   unittest: any
