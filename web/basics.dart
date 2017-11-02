@@ -9,6 +9,13 @@
 import 'dart:html';
 
 class Basics {
+//function作为参数，event的事件注册其实就是把事件fucntion 作为参数传递给listern()的。
+int add(int a,int b){
+  return a+b;
+}
+int addNumber(int addPara(int a,int b)){
+  return addPara;
+}
 ///这一行是做什么的？
   Element _dragSourceEl;
 /// 这个函数是做什么？
@@ -71,7 +78,8 @@ class Basics {
     if (_dragSourceEl != dropTarget) {
       ////这里做什么？
       _dragSourceEl.innerHtml = dropTarget.innerHtml;
-      dropTarget.innerHtml = event.dataTransfer.getData('text/html');
+      dropTarget.innerHtml=addNumber(add(2,3));
+      //dropTarget.innerHtml = event.dataTransfer.getData('text/html');
     }
   }
 }
