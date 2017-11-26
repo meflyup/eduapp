@@ -2,8 +2,7 @@ name: myconference
 version: 0.0.1
 description: A sample web application
 dependencies:
-  browser: any
-  messenger: "^0.0.7"
-  polymer: ">=0.15.1 <0.17.0"
+  browser: "^0.10.0+2"
+  redstone: "^0.6.8"
 dev_dependencies:
   unittest: any
