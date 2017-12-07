@@ -29,6 +29,7 @@ int addNumber(int addPara(int a,int b)){
       col.onDragOver.listen(_onDragOver);
       col.onDragLeave.listen(_onDragLeave);
       col.onDrop.listen(_onDrop);
+      col.onMouseOver.listen(_onDragStart);
     }
   }
 ///这个function做什么？
