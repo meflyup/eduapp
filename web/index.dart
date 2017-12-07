@@ -7,26 +7,25 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:html';
+
 import 'package:http/browser_client.dart';
+
+main() async {
+  querySelector('#getData').onClick.listen(makeRequest);
+
+  querySelector('#postData').onClick.listen(makePostRequest);
+
+  wordList = querySelector('#wordList');
+}
 
 var wordList;
 
- main() async{
-  querySelector('#getData').onClick.listen(makeRequest);
-  
-  wordList = querySelector('#wordList');
-
-  var client = new BrowserClient();
-  var url = 'http://localhost:90/data/add';
-  var response =
-      await client.post(url, body: {'name': 'doodle', 'color': 'blue'});
-  print('Response status: ${response.statusCode}');
-  print('Response body: ${response.body}');
-  
+void handleError(Object error) {
+  wordList.children.add(new LIElement()..text = 'Request failed.');
 }
 
 Future makeRequest(Event e) async {
-  var path='http://localhost:90/data/';
+  var path = 'http://localhost:90/data/';
   try {
     processString(await HttpRequest.getString(path));
   } catch (e) {
@@ -42,8 +41,12 @@ void processString(String jsonString) {
   }
 }
 
-void handleError(Object error) {
-  wordList.children.add(new LIElement()..text = 'Request failed.');
+Future makePostRequest(Event e) async {
+  String url = 'http://localhost:90/data/add';
+  HttpRequest
+      .request(url, method: 'POST', sendData: '''{'user':'zhangsan'}''')
+      .then((HttpRequest resp) {
+    // Do something with the response.
+    querySelector('#response').text = resp.responseText;
+  });
 }
-
-

@@ -5,6 +5,7 @@ dependencies:
   browser: "^0.10.0+2"
   redstone: "^0.6.8"
   shelf_cors: "^0.2.1"
-  http: "^0.11.3+16" 
+  http: "^0.11.3+16"
+  sqljocky5: "^1.0.0"
 dev_dependencies:
   unittest: any

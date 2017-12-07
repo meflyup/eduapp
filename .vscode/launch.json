@@ -4,11 +4,12 @@
     // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
+       
         {
             "name": "Dart command line",
             "type": "dart-cli",
             "request": "launch",
-            "program": "${workspaceRoot}/bin/server.dart"
+            "program": "${workspaceRoot}/bin/main.dart"
         }
     ]
 }
